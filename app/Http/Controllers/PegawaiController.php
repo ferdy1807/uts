@@ -15,7 +15,8 @@ class PegawaiController extends Controller
     public function index()
     {
         $data = Pegawai::all();
-        return view('datapegawai',compact('data'));
+        $total = Pegawai::count();
+        return view('datapegawai',compact('data','total'));
     }
 
     /**
