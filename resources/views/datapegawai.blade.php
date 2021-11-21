@@ -1,5 +1,4 @@
 @extends('layout.global')
-
 @section('content')
 <section class="content">
     <div class="container-fluid">
