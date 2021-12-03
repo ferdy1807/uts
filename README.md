@@ -28,6 +28,6 @@ Langkah-langkah ;
 8. php artisan db:seed
 9. jalankan aplikasi
 10. php artisan serve
-*buka di browser (pilih)
-http://localhost:8000/
-http://127.0.0.1:8000/
+- buka di browser (pilih)
+: http://localhost:8000/
+: http://127.0.0.1:8000/
