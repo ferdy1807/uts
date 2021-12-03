@@ -24,9 +24,9 @@ class PegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('tambahdata');
     }
 
     /**
@@ -37,7 +37,8 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pegawai::create($request->all());
+        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil di Tambahkan!');
     }
 
     /**
@@ -46,9 +47,10 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function show(Pegawai $pegawai)
+    public function show($id)
     {
-        //
+            $data = Pegawai::findOrFail($id);
+            return view('tampilpegawai', compact('data'));
     }
 
     /**
@@ -59,7 +61,7 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        //
+        
     }
 
     /**
@@ -69,9 +71,11 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pegawai $pegawai)
+    public function update(Request $request,    $id)
     {
-        //
+        $data = Pegawai::findOrFail($id);
+        $data->update($request->all());
+        return redirect('/pegawai')->with('info', 'Data Pegawai Berhasil di Update!');
     }
 
     /**
@@ -80,8 +84,10 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pegawai $pegawai)
+    public function destroy($id)
     {
-        //
+        $data = Pegawai::findOrFail($id);
+        $data->delete();
+        return redirect('/pegawai')->with('error', 'Data Pegawai telah dihapus!!!');
     }
 }

@@ -9,7 +9,7 @@ with font-awesome or any other icon font library -->
             </p>
             </a>
         </li>
-        <li class="nav-item menu-open">
+        <li class="nav-item menu-close">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-angle-double-down"></i>
                 <p>Tabel Data
