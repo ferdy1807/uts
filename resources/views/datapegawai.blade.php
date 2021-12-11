@@ -31,8 +31,9 @@
                                     <td>{{ $row->nama }}</td>
                                     <td>{{ $row->jekel }}</td>
                                     <td>0{{ $row->nohp }}</td>
-                                    <td><img src={{ asset ('storage/foto/'.($row->foto)) }} style="height:50px;
-                                        width:70px;"></td>
+                                    <td>
+                                        <img src={{ asset ('storage/foto/'.$row->foto) }} alt=""  style="height:50px; width:70px;">
+                                    </td>
                                     <td>
                                         <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                                             <a href="/tampilpegawai/{{ $row->id }}" type="radio" name="options"

@@ -44,7 +44,7 @@
 
                         <div class="form-group">
                             <label for="inputProjectLeader">Upload foto</label>
-                            <input type="text" name="foto" id="inputProjectLeader" class="form-control">
+                            <input type="file" name="foto" id="inputProjectLeader" class="form-control">
                         </div>
 
                         <div class="form-group">

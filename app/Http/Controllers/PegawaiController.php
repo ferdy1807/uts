@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiController extends Controller
 {
@@ -16,7 +17,7 @@ class PegawaiController extends Controller
     {
         $data = Pegawai::all();
         $total = Pegawai::count();
-        return view('datapegawai',compact('data','total'));
+        return view('datapegawai', compact('data', 'total'));
     }
 
     /**
@@ -37,7 +38,12 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        Pegawai::create($request->all());
+        $data = Pegawai::create($request->all());
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->storeAs('public/foto', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
         return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil di Tambahkan!');
     }
 
@@ -49,8 +55,8 @@ class PegawaiController extends Controller
      */
     public function show($id)
     {
-            $data = Pegawai::findOrFail($id);
-            return view('tampilpegawai', compact('data'));
+        $data = Pegawai::findOrFail($id);
+        return view('tampilpegawai', compact('data'));
     }
 
     /**
@@ -61,7 +67,6 @@ class PegawaiController extends Controller
      */
     public function edit(Pegawai $pegawai)
     {
-        
     }
 
     /**
@@ -71,9 +76,19 @@ class PegawaiController extends Controller
      * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,    $id)
+    public function update(Request $request, $id)
     {
         $data = Pegawai::findOrFail($id);
+        if (request()->hasFile('foto') && request('foto') != '') {
+            $imagePath = file_exists(storage_path('foto' . $data->foto));
+            if (Pegawai::exists($imagePath))
+            {
+                Storage::delete($imagePath);
+            }
+
+            $foto = $request->file('foto')->storeAs('public/foto', $request->file('foto')->getClientOriginalName());
+            $data['foto'] = $foto;
+        }
         $data->update($request->all());
         return redirect('/pegawai')->with('info', 'Data Pegawai Berhasil di Update!');
     }

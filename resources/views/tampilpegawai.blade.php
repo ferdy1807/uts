@@ -43,8 +43,9 @@
                         </div>
 
                         <div class="form-group">
+                            <img src={{ asset ('storage/foto/'.$data->foto) }} alt=""  style="width:200px;">
                             <label for="inputProjectLeader">Upload foto</label>
-                            <input type="text" name="foto" id="inputProjectLeader" class="form-control" value="{{ $data->foto }}">
+                            <input type="file" name="foto" class="form-control img-preview img-fluid mb-3 col-sm5- d-block" placeholder="image">
                         </div>
 
                         <div class="form-group">
