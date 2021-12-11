@@ -6,7 +6,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-Setelah didownload extrack kedalam folder htdocs (menyesuaikan folder tujuan)
+Setelah didownload extract kedalam folder htdocs (menyesuaikan folder tujuan)
 
 Langkah-langkah ;
 
@@ -19,15 +19,17 @@ Langkah-langkah ;
 
 6. ubah isian file .env menjadi
 
-- DB_DATABASE = uts
-- DB_USERNAME = root (menyesuaikan konfigurasi phpmyadmin)
-- DB_PASSWORD = (kosong/menyesuaikan konfigurasi phpmyadmin)
-- masuk ke dalam folder uts kembali dan jalankan command prompt
+-   DB_DATABASE = uts
+-   DB_USERNAME = root (menyesuaikan konfigurasi phpmyadmin)
+-   DB_PASSWORD = (kosong/menyesuaikan konfigurasi phpmyadmin)
+-   masuk ke dalam folder uts kembali dan jalankan command prompt
 
-7. php artisan migrate
-8. php artisan db:seed
+7. Jalankan syntax 
+* php artisan migrate
+* php artisan db:seed
 9. jalankan aplikasi
 10. php artisan serve
-- buka di browser (pilih)
-: http://localhost:8000/
-: http://127.0.0.1:8000/
+
+-   buka di browser (pilih)
+    : http://localhost:8000/
+    : http://127.0.0.1:8000/
