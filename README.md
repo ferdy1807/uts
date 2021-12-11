@@ -28,7 +28,7 @@ Langkah-langkah ;
 * php artisan migrate
 * php artisan db:seed
 9. jalankan aplikasi
-10. php artisan serve
+* php artisan serve
 
 -   buka di browser (pilih)
     : http://localhost:8000/
